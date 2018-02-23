@@ -1,15 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Text;
 using BenchmarkDotNet.Attributes;
 
 namespace Benchmarks.Benchmarks
 {
     public class FindSequenceBenchmark
     {
-        private static readonly List<int> List = ImmutableList.Create(3, 1, 2, 10, 12, 228, 11, 1488, 7, 6, 8).OrderBy(x => x).ToList();
+        private List<int> List;
+
+        [Params(1,10)]
+        public int Multiplier;
+
+        [GlobalSetup]
+        public void GlobalSetup()
+        {
+            var template = ImmutableList.Create(3, 1, 2, 10, 12, 17, 11, 20, 7, 6, 8).OrderBy(x => x).ToList();
+
+            List = Enumerable.Range(0, Multiplier)
+                .SelectMany(
+                    i => template.Select(x => x + i * 100))
+                .ToList();
+        }
 
         [Benchmark]
         public int AggregationImmutable()
@@ -107,7 +119,7 @@ namespace Benchmarks.Benchmarks
             return ints2.Count;
         }
 
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         public int ForMutable()
         {
             // For + mutable

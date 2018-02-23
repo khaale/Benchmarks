@@ -9,11 +9,18 @@ Frequency=2338344 Hz, Resolution=427.6531 ns, Timer=TSC
 
 
 ```
-|               Method |       Mean |     Error |    StdDev |
-|--------------------- |-----------:|----------:|----------:|
-| AggregationImmutable | 7,641.3 ns | 47.257 ns | 44.205 ns |
-|   AggregationMutable | 1,359.6 ns |  5.892 ns |  5.223 ns |
-|     ForeachImmutable | 7,499.7 ns | 21.953 ns | 20.535 ns |
-|       ForeachMutable | 1,235.1 ns | 35.712 ns | 35.074 ns |
-| ForeachMutableWithIf | 1,195.3 ns |  7.140 ns |  6.679 ns |
-|           ForMutable |   269.1 ns |  4.173 ns |  3.903 ns |
+|               Method | Multiplier |         Mean |        Error |       StdDev | Scaled | ScaledSD |
+|--------------------- |----------- |-------------:|-------------:|-------------:|-------:|---------:|
+| **AggregationImmutable** |          **1** |   **7,503.2 ns** |    **42.132 ns** |    **39.410 ns** |  **32.97** |     **0.28** |
+|   AggregationMutable |          1 |   1,314.8 ns |     7.169 ns |     6.706 ns |   5.78 |     0.05 |
+|     ForeachImmutable |          1 |   7,437.5 ns |    25.753 ns |    24.089 ns |  32.68 |     0.24 |
+|       ForeachMutable |          1 |   1,146.8 ns |    10.428 ns |     8.708 ns |   5.04 |     0.05 |
+| ForeachMutableWithIf |          1 |   1,129.8 ns |     9.871 ns |     9.233 ns |   4.96 |     0.05 |
+|           ForMutable |          1 |     227.6 ns |     1.697 ns |     1.588 ns |   1.00 |     0.00 |
+|                      |            |              |              |              |        |          |
+| **AggregationImmutable** |         **10** | **247,667.0 ns** |   **489.839 ns** |   **409.037 ns** | **125.72** |     **2.31** |
+|   AggregationMutable |         10 |  13,051.1 ns |    63.313 ns |    59.223 ns |   6.62 |     0.12 |
+|     ForeachImmutable |         10 | 246,832.6 ns | 1,621.160 ns | 1,516.434 ns | 125.30 |     2.42 |
+|       ForeachMutable |         10 |  11,803.0 ns |   227.325 ns |   287.494 ns |   5.99 |     0.18 |
+| ForeachMutableWithIf |         10 |  11,354.5 ns |   128.550 ns |   107.345 ns |   5.76 |     0.12 |
+|           ForMutable |         10 |   1,970.7 ns |    46.690 ns |    38.988 ns |   1.00 |     0.00 |

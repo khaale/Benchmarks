@@ -23,14 +23,20 @@ Frequency=2338344 Hz, Resolution=427.6531 ns, Timer=TSC
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>        Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>        Method</th><th>Multiplier</th><th>  Mean</th><th> Error</th><th>StdDev</th><th>Scaled</th><th>ScaledSD</th>
 </tr>
-</thead><tbody><tr><td>AggregationImmutable</td><td>7,641.3 ns</td><td>47.257 ns</td><td>44.205 ns</td>
-</tr><tr><td>AggregationMutable</td><td>1,359.6 ns</td><td>5.892 ns</td><td>5.223 ns</td>
-</tr><tr><td>ForeachImmutable</td><td>7,499.7 ns</td><td>21.953 ns</td><td>20.535 ns</td>
-</tr><tr><td>ForeachMutable</td><td>1,235.1 ns</td><td>35.712 ns</td><td>35.074 ns</td>
-</tr><tr><td>ForeachMutableWithIf</td><td>1,195.3 ns</td><td>7.140 ns</td><td>6.679 ns</td>
-</tr><tr><td>ForMutable</td><td>269.1 ns</td><td>4.173 ns</td><td>3.903 ns</td>
+</thead><tbody><tr><td>AggregationImmutable</td><td>1</td><td>7,503.2 ns</td><td>42.132 ns</td><td>39.410 ns</td><td>32.97</td><td>0.28</td>
+</tr><tr><td>AggregationMutable</td><td>1</td><td>1,314.8 ns</td><td>7.169 ns</td><td>6.706 ns</td><td>5.78</td><td>0.05</td>
+</tr><tr><td>ForeachImmutable</td><td>1</td><td>7,437.5 ns</td><td>25.753 ns</td><td>24.089 ns</td><td>32.68</td><td>0.24</td>
+</tr><tr><td>ForeachMutable</td><td>1</td><td>1,146.8 ns</td><td>10.428 ns</td><td>8.708 ns</td><td>5.04</td><td>0.05</td>
+</tr><tr><td>ForeachMutableWithIf</td><td>1</td><td>1,129.8 ns</td><td>9.871 ns</td><td>9.233 ns</td><td>4.96</td><td>0.05</td>
+</tr><tr><td>ForMutable</td><td>1</td><td>227.6 ns</td><td>1.697 ns</td><td>1.588 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>AggregationImmutable</td><td>10</td><td>247,667.0 ns</td><td>489.839 ns</td><td>409.037 ns</td><td>125.72</td><td>2.31</td>
+</tr><tr><td>AggregationMutable</td><td>10</td><td>13,051.1 ns</td><td>63.313 ns</td><td>59.223 ns</td><td>6.62</td><td>0.12</td>
+</tr><tr><td>ForeachImmutable</td><td>10</td><td>246,832.6 ns</td><td>1,621.160 ns</td><td>1,516.434 ns</td><td>125.30</td><td>2.42</td>
+</tr><tr><td>ForeachMutable</td><td>10</td><td>11,803.0 ns</td><td>227.325 ns</td><td>287.494 ns</td><td>5.99</td><td>0.18</td>
+</tr><tr><td>ForeachMutableWithIf</td><td>10</td><td>11,354.5 ns</td><td>128.550 ns</td><td>107.345 ns</td><td>5.76</td><td>0.12</td>
+</tr><tr><td>ForMutable</td><td>10</td><td>1,970.7 ns</td><td>46.690 ns</td><td>38.988 ns</td><td>1.00</td><td>0.00</td>
 </tr></tbody></table>
 </body>
 </html>
