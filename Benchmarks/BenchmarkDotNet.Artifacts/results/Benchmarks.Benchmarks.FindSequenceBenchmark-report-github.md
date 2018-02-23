@@ -9,11 +9,11 @@ Frequency=2338344 Hz, Resolution=427.6531 ns, Timer=TSC
 
 
 ```
-|               Method |       Mean |      Error |     StdDev |
-|--------------------- |-----------:|-----------:|-----------:|
-| AggregationImmutable | 8,219.5 ns | 163.619 ns | 212.751 ns |
-|   AggregationMutable | 1,782.9 ns |   8.445 ns |   6.593 ns |
-|     ForeachImmutable | 8,436.5 ns |  67.136 ns |  62.799 ns |
-|       ForeachMutable | 1,725.8 ns |   9.724 ns |   9.096 ns |
-| ForeachMutableWithIf | 1,681.6 ns |   7.433 ns |   6.953 ns |
-|           ForMutable |   260.7 ns |   1.922 ns |   1.501 ns |
+|               Method |       Mean |     Error |    StdDev |
+|--------------------- |-----------:|----------:|----------:|
+| AggregationImmutable | 7,641.3 ns | 47.257 ns | 44.205 ns |
+|   AggregationMutable | 1,359.6 ns |  5.892 ns |  5.223 ns |
+|     ForeachImmutable | 7,499.7 ns | 21.953 ns | 20.535 ns |
+|       ForeachMutable | 1,235.1 ns | 35.712 ns | 35.074 ns |
+| ForeachMutableWithIf | 1,195.3 ns |  7.140 ns |  6.679 ns |
+|           ForMutable |   269.1 ns |  4.173 ns |  3.903 ns |
