@@ -9,13 +9,13 @@ namespace Benchmarks.Benchmarks
 {
     public class FindSequenceBenchmark
     {
-        private static readonly  ICollection<int> list = ImmutableList.Create(3, 1, 2, 10, 12, 228, 11, 1488, 7, 6, 8).OrderBy(x => x).ToArray();
+        private static readonly int[] List = ImmutableList.Create(3, 1, 2, 10, 12, 228, 11, 1488, 7, 6, 8).OrderBy(x => x).ToArray();
 
         [Benchmark]
         public int AggregationImmutable()
         {
             // Aggregation + Immutable
-            return list
+            return List
                 .Aggregate(ImmutableList<ImmutableList<int>>.Empty, (ints, i) =>
                     ints.IsEmpty || ints.Last().Last() != i - 1
                         ? ints.Add(ImmutableList.Create(i))
@@ -39,7 +39,7 @@ namespace Benchmarks.Benchmarks
                 return lst;
             }
 
-            return list
+            return List
                 .OrderBy(x => x)
                 .Aggregate(new List<List<int>>(), (ints, i) => ints.Count == 0 || ints.Last().Last() != i - 1
                     ? AddToList(ints, new List<int>() {i})
@@ -52,7 +52,7 @@ namespace Benchmarks.Benchmarks
         {
             // Foreach + Immutable
             var ints1 = ImmutableList<ImmutableList<int>>.Empty;
-            foreach (var i in list.OrderBy(x => x))
+            foreach (var i in List.OrderBy(x => x))
             {
                 ints1 = ints1.IsEmpty || ints1.Last().Last() != i - 1
                     ? ints1.Add(ImmutableList.Create(i))
@@ -80,7 +80,7 @@ namespace Benchmarks.Benchmarks
 
             // Foreach + mutable
             var ints2 = new List<List<int>>();
-            foreach (var i in list.OrderBy(x => x))
+            foreach (var i in List.OrderBy(x => x))
             {
                 ints2 = ints2.Count == 0 || ints2.Last().Last() != i - 1
                     ? AddToList(ints2, new List<int>() { i })
@@ -94,7 +94,7 @@ namespace Benchmarks.Benchmarks
         {
             // Foreach + mutable with if
             var ints2 = new List<List<int>>();
-            foreach (var i in list.OrderBy(x => x))
+            foreach (var i in List.OrderBy(x => x))
             {
                 if (ints2.Count == 0 || ints2.Last().Last() != i - 1)
                 {
@@ -106,6 +106,25 @@ namespace Benchmarks.Benchmarks
                 }
             }
             return ints2.Count;
+        }
+
+        [Benchmark]
+        public int ForMutable()
+        {
+            // For + mutable
+            var result = new List<List<int>>();
+            for (int i = 0; i < List.Length; i++)
+            {
+                if (i == 0 || List[i - 1] != List[i] - 1)
+                {
+                    result.Add(new List<int>() { List[i] });
+                }
+                else
+                {
+                    result[result.Count - 1].Add(List[i]);
+                }
+            }
+            return result.Count;
         }
     }
 }
